@@ -1,25 +1,28 @@
+import pandas as pd
 
-# Full student profile using dictionary
+data = pd.read_csv("dataset/students.csv")
 
-student_1 = {
-    "name": "Sujan",
-    "marks": 72,
-    "interest": "Technology"
-}
+print("Student Dataset:\n")
+print(data)
 
-student_2 = {
-    "name": "Riya",
-    "marks": 85,
-    "interest": "Medical"
-}
 
-student_3 = {
-    "name": "Aayush",
-    "marks": 60,
-    "interest": "Business"
-}
 
-print("Student Profiles:")
-print(student_1)
-print(student_2)
-print(student_3)
+print("\nOnly Student Names:")
+print(data["name"])
+
+print("\nOnly Student Marks:")
+print(data["marks"])
+
+print("\nOnly Student Interest:")
+print(data["interest"])
+
+
+
+print("\nBasic Recommendation Logic:")
+
+for index, row in data.iterrows():
+    if row["marks"] >= 80:
+        print(row["name"], "=> Recommended: Advanced Studies")
+    else:
+        print(row["name"], "=> Recommended: Basic Studies")
+
